@@ -121,18 +121,18 @@
         <p>Notre démarche s'articule autour de trois engagements forts, au cœur de chaque chantier.</p>
       </div>
       <div class="grid grid--3">
-        <div class="card reveal">
-          <div class="card__icon"><i data-icon="handshake" data-isize="28"></i></div>
+        <div class="card card--center reveal">
+          <div class="card__icon"><i data-icon="handshake" data-isize="30"></i></div>
           <h3>Partenaires locaux &amp; durables</h3>
           <p>Nous privilégions des partenaires et des fournisseurs locaux, pour une chaîne de valeur de proximité et des matériaux qui durent.</p>
         </div>
-        <div class="card reveal" data-d="1">
-          <div class="card__icon"><i data-icon="users" data-isize="28"></i></div>
+        <div class="card card--center reveal" data-d="1">
+          <div class="card__icon"><i data-icon="users" data-isize="30"></i></div>
           <h3>Épanouissement professionnel</h3>
           <p>Une équipe familiale, motivée et qualifiée, à qui nous offrons un cadre de travail sain pour un savoir-faire qui se transmet.</p>
         </div>
-        <div class="card reveal" data-d="2">
-          <div class="card__icon"><i data-icon="leaf" data-isize="28"></i></div>
+        <div class="card card--center reveal" data-d="2">
+          <div class="card__icon"><i data-icon="leaf" data-isize="30"></i></div>
           <h3>Écoresponsabilité</h3>
           <p>Toujours en quête d'innovation, nous travaillons avec des produits durables et respectueux de l'environnement.</p>
         </div>
@@ -251,7 +251,7 @@
   <script>
     const grid = document.getElementById("servicesGrid");
     grid.innerHTML = SERVICES.map((s, i) => `
-      <a class="card reveal" data-d="${i % 4}" href="devis.html#${s.id}" style="text-decoration:none">
+      <a class="card card--center reveal" data-d="${i % 4}" href="devis.html#${s.id}" style="text-decoration:none">
         <div class="card__icon">${icon(s.ic, 28)}</div>
         <h3>${s.label}</h3>
         <p>${s.desc}</p>
