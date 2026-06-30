@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prendre rendez-vous — AMR (Drôme / Ardèche / Isère)</title>
+  <meta name="description" content="Réservez en ligne votre visite technique, un dépannage ou un rendez-vous conseil avec AMR. Choix du créneau et confirmation immédiate.">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="rdv">
+  <div id="site-header"></div>
+
+  <section class="section section--alt section--tight">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:20px">
+        <span class="eyebrow">Rendez-vous en ligne</span>
+        <h2>Réservez votre créneau en quelques clics</h2>
+        <p>Visite technique, dépannage ou simple conseil : choisissez le moment qui vous convient. Confirmation immédiate.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:28px">
+    <div class="container">
+      <div class="layout-2">
+        <!-- Colonne réservation -->
+        <form class="form" id="rdvForm" autocomplete="off">
+          <div class="form__body">
+
+            <div id="rdvBooking">
+              <div class="field">
+                <label>Motif du rendez-vous <span class="required">*</span></label>
+                <select id="motif" name="motif">
+                  <option value="Visite technique (gratuite)">Visite technique gratuite (étude de projet)</option>
+                  <option value="Dépannage / SAV">Dépannage / SAV</option>
+                  <option value="Rendez-vous conseil">Rendez-vous conseil en showroom</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label>Prestation concernée</label>
+                <select id="rdvService" name="service"></select>
+              </div>
+
+              <div class="field">
+                <label>Choisissez un jour <span class="required">*</span></label>
+                <div class="day-tabs" id="dayTabs"></div>
+              </div>
+
+              <div class="field">
+                <label>Choisissez un créneau <span class="required">*</span></label>
+                <div class="slot-grid" id="slotGrid"></div>
+                <p class="muted" style="font-size:.82rem;margin:10px 0 0">Les créneaux barrés sont déjà réservés ou indisponibles.</p>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="r-prenom">Prénom <span class="required">*</span></label>
+                  <input id="r-prenom" name="prenom" required>
+                </div>
+                <div class="field">
+                  <label for="r-nom">Nom <span class="required">*</span></label>
+                  <input id="r-nom" name="nom" required>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="r-tel">Téléphone <span class="required">*</span></label>
+                  <input id="r-tel" name="tel" type="tel" required>
+                </div>
+                <div class="field">
+                  <label for="r-email">E-mail <span class="required">*</span></label>
+                  <input id="r-email" name="email" type="email" required>
+                </div>
+              </div>
+              <div class="field">
+                <label for="r-adresse">Adresse de l'intervention <span class="hint">(pour la visite technique)</span></label>
+                <input id="r-adresse" name="adresse" placeholder="Adresse, commune">
+              </div>
+
+              <label class="consent">
+                <input type="checkbox" id="rdvConsent" name="consent" required>
+                <span>J'accepte que mes informations soient utilisées par AMR pour gérer mon rendez-vous, conformément à la <a href="mentions-legales.html" target="_blank">politique de confidentialité</a>. <span class="required">*</span></span>
+              </label>
+              <button type="submit" class="btn btn--primary btn--lg btn--full" id="rdvSubmit" disabled style="margin-top:18px">Confirmer mon rendez-vous</button>
+            </div>
+
+            <!-- Confirmation -->
+            <div id="rdvDone" class="hidden">
+              <div class="alert alert--success"><i data-icon="checkCircle" data-isize="22"></i> <div><strong>Rendez-vous confirmé&nbsp;!</strong> Vous recevrez un rappel avant la date.</div></div>
+              <div class="track-card">
+                <p class="muted mt-0">Référence de votre rendez-vous</p>
+                <div style="font-size:1.6rem;font-weight:800;color:var(--green-dark)" id="rdvRef">—</div>
+                <div class="track-meta" style="margin-top:18px">
+                  <div><span>Date</span><strong id="cDate">—</strong></div>
+                  <div><span>Heure</span><strong id="cHour">—</strong></div>
+                  <div><span>Motif</span><strong id="cMotif">—</strong></div>
+                </div>
+                <div class="hero__actions">
+                  <a class="btn btn--primary" id="rdvTrack" href="suivi.html">Suivre mon dossier →</a>
+                  <button type="button" class="btn btn--outline" onclick="location.reload()">Nouveau rendez-vous</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </form>
+
+        <!-- Colonne récap -->
+        <aside>
+          <div class="summary">
+            <h3>Votre rendez-vous</h3>
+            <div class="summary__row"><span>Motif</span><span id="sMotif">—</span></div>
+            <div class="summary__row"><span>Prestation</span><span id="sService">—</span></div>
+            <div class="summary__row"><span>Date</span><span id="sDate">—</span></div>
+            <div class="summary__row"><span>Heure</span><span id="sHour">—</span></div>
+            <p class="summary__empty" style="margin-top:16px">Sélectionnez un jour et un créneau pour activer la confirmation.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/rdv.js"></script>
+</body>
+</html>

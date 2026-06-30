@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devis en ligne — AMR Piscines & Paysagiste (Drôme)</title>
+  <meta name="description" content="Estimez votre projet en ligne : piscine, terrassement, maçonnerie, clôture, allées, plantation… Formulaire intelligent et fourchette de prix immédiate.">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="devis">
+  <div id="site-header"></div>
+
+  <section class="section section--alt section--tight">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:24px">
+        <span class="eyebrow">Devis intelligent en ligne</span>
+        <h2>Estimez votre projet en 2 minutes</h2>
+        <p>Choisissez votre besoin : le formulaire s'adapte au métier et vous obtenez une fourchette de prix immédiate, sans engagement.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:24px">
+    <div class="container" style="max-width:920px">
+
+      <div class="stepper" id="stepper">
+        <div class="stepper__item is-active" data-step="1"><span class="stepper__num">1</span> Votre besoin</div>
+        <div class="stepper__item" data-step="2"><span class="stepper__num">2</span> Détails du projet</div>
+        <div class="stepper__item" data-step="3"><span class="stepper__num">3</span> Coordonnées &amp; estimation</div>
+      </div>
+
+      <form class="form" id="devisForm" autocomplete="off">
+        <div class="form__body">
+
+          <!-- STEP 1 -->
+          <div class="step" data-step="1">
+            <div class="field">
+              <label>Quel type de projet souhaitez-vous réaliser ? <span class="required">*</span></label>
+              <div class="service-picker" id="servicePicker"></div>
+            </div>
+            <div class="center">
+              <button type="button" class="btn btn--primary btn--lg" data-next disabled id="next1">Continuer →</button>
+            </div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="step hidden" data-step="2">
+            <div class="dyn-block">
+              <h4 id="dynTitle">Détails</h4>
+              <div id="dynFields"></div>
+            </div>
+            <div class="field">
+              <label for="message">Précisions complémentaires <span class="hint">(facultatif)</span></label>
+              <textarea id="message" name="message" placeholder="Décrivez votre terrain, vos contraintes, vos envies…"></textarea>
+            </div>
+            <div style="display:flex;justify-content:space-between;gap:12px">
+              <button type="button" class="btn btn--outline" data-prev>← Retour</button>
+              <button type="button" class="btn btn--primary" data-next>Voir mon estimation →</button>
+            </div>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="step hidden" data-step="3">
+            <div class="alert alert--info" id="estimateBox">
+              <div>
+                <strong>Estimation indicative pour votre projet&nbsp;:</strong>
+                <div id="estimateValue" style="font-size:1.6rem;font-weight:800;color:var(--green-dark);margin-top:4px">—</div>
+                <div class="muted" id="estimateNote" style="font-size:.85rem;margin-top:4px"></div>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="prenom">Prénom <span class="required">*</span></label>
+                <input id="prenom" name="prenom" required>
+              </div>
+              <div class="field">
+                <label for="nom">Nom <span class="required">*</span></label>
+                <input id="nom" name="nom" required>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="email">E-mail <span class="required">*</span></label>
+                <input id="email" name="email" type="email" required>
+              </div>
+              <div class="field">
+                <label for="tel">Téléphone <span class="required">*</span></label>
+                <input id="tel" name="tel" type="tel" required>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="cp">Code postal <span class="required">*</span></label>
+                <input id="cp" name="cp" inputmode="numeric" maxlength="5" placeholder="26300" required>
+              </div>
+              <div class="field">
+                <label for="ville">Ville <span class="required">*</span></label>
+                <input id="ville" name="ville" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="delai">Échéance souhaitée</label>
+              <select id="delai" name="delai">
+                <option value="Dès que possible">Dès que possible</option>
+                <option value="Sous 3 mois">Sous 3 mois</option>
+                <option value="Cette année">Cette année</option>
+                <option value="Je me renseigne">Je me renseigne</option>
+              </select>
+            </div>
+            <label class="consent">
+              <input type="checkbox" id="consent" name="consent" required>
+              <span>J'accepte que mes informations soient utilisées par AMR pour traiter ma demande de devis, conformément à la <a href="mentions-legales.html" target="_blank">politique de confidentialité</a>. <span class="required">*</span></span>
+            </label>
+            <div style="display:flex;justify-content:space-between;gap:12px;margin-top:18px">
+              <button type="button" class="btn btn--outline" data-prev>← Retour</button>
+              <button type="submit" class="btn btn--primary btn--lg" id="devisSubmit">Envoyer ma demande de devis</button>
+            </div>
+          </div>
+
+          <!-- SUCCESS -->
+          <div class="step hidden" data-step="done">
+            <div class="alert alert--success"><i data-icon="checkCircle" data-isize="22"></i> <div><strong>Votre demande a bien été enregistrée&nbsp;!</strong> Notre équipe vous recontacte sous 24h ouvrées.</div></div>
+            <div class="track-card">
+              <p class="muted mt-0">Votre numéro de dossier&nbsp;:</p>
+              <div style="font-size:1.8rem;font-weight:800;color:var(--green-dark)" id="refOut">—</div>
+              <p class="muted">Conservez-le pour suivre l'avancement de votre projet en ligne à tout moment.</p>
+              <div class="hero__actions">
+                <a class="btn btn--primary" id="trackLink" href="suivi.html">Suivre mon projet →</a>
+                <a class="btn btn--outline" href="rendez-vous.html">Réserver une visite technique</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </form>
+
+      <p class="center muted" style="margin-top:18px;font-size:.85rem">
+        <i data-icon="bulb" data-isize="16"></i> Estimation automatique indicative. Seule une visite technique gratuite permet d'établir un devis ferme.
+      </p>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/devis.js"></script>
+</body>
+</html>

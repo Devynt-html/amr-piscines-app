@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace pro — AMR</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="admin-bg" data-page="admin">
+
+  <!-- Barre supérieure -->
+  <div class="admin-topbar">
+    <div class="container nav">
+      <div class="nav__brand">
+        <img src="assets/img/logo-amr-blanc.png" alt="AMR">
+        <h1>Espace professionnel</h1>
+      </div>
+      <button class="btn btn--ghost" id="logoutBtn" style="display:none">Déconnexion</button>
+    </div>
+  </div>
+
+  <!-- Écran de connexion -->
+  <section class="section" id="gate">
+    <div class="container">
+      <div class="form admin-gate">
+        <div class="form__body">
+          <div class="center" style="margin-bottom:18px">
+            <div class="feature__badge" style="margin:0 auto 14px"><i data-icon="lock" data-isize="26"></i></div>
+            <h2 style="margin:0">Accès réservé à AMR</h2>
+            <p class="muted">Saisissez votre code d'accès pour gérer vos demandes.</p>
+          </div>
+          <form id="gateForm">
+            <div class="field">
+              <label for="pin">Code d'accès</label>
+              <input id="pin" type="password" placeholder="••••••" required>
+            </div>
+            <div id="gateError" class="alert alert--info hidden" style="background:#fdeaea;border-color:#f5c2c2;color:#a12">Code incorrect, réessayez.</div>
+            <button class="btn btn--primary btn--full" type="submit">Se connecter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tableau de bord -->
+  <section class="section hidden" id="dash" style="padding-top:40px">
+    <div class="container">
+
+      <div class="admin-stats" id="adminStats"></div>
+
+      <!-- Agenda / indisponibilités -->
+      <div class="agenda-card">
+        <h2><i data-icon="calendar" data-isize="20"></i> Agenda — mes indisponibilités</h2>
+        <p class="muted mb-0" style="font-size:.9rem">Bloquez une journée entière (congés, chantier…) ou un créneau précis : ils deviennent automatiquement indisponibles à la réservation en ligne.</p>
+
+        <form class="agenda-form" id="blockForm">
+          <div class="field">
+            <label for="blockDate">Date</label>
+            <input type="date" id="blockDate" required>
+          </div>
+          <div class="field">
+            <label for="blockSlot">Créneau</label>
+            <select id="blockSlot"></select>
+          </div>
+          <div class="field">
+            <label for="blockReason">Motif <span class="hint">(facultatif)</span></label>
+            <input type="text" id="blockReason" placeholder="Congés, chantier en cours…">
+          </div>
+          <button class="btn btn--primary" type="submit"><i data-icon="lock" data-isize="17"></i> Bloquer</button>
+        </form>
+
+        <div class="block-list" id="blockList"></div>
+      </div>
+
+      <div class="admin-toolbar">
+        <div class="admin-tabs" id="adminTabs">
+          <button class="filter-btn is-active" data-f="all">Toutes</button>
+          <button class="filter-btn" data-f="devis">Devis</button>
+          <button class="filter-btn" data-f="rdv">Rendez-vous</button>
+        </div>
+        <button class="btn btn--outline" id="exportBtn"><i data-icon="download" data-isize="18"></i> Exporter (CSV)</button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data" id="dataTable">
+          <thead>
+            <tr>
+              <th>Réf.</th><th>Date</th><th>Type</th><th>Client</th><th>Contact</th>
+              <th>Prestation</th><th>Détail</th><th>Statut</th><th></th>
+            </tr>
+          </thead>
+          <tbody id="dataBody"></tbody>
+        </table>
+        <div class="admin-empty hidden" id="emptyState">Aucune demande pour le moment.</div>
+      </div>
+
+      <p class="muted" style="font-size:.82rem;margin-top:16px">
+        <i data-icon="info" data-isize="15"></i>
+        Démo : les demandes affichées proviennent de ce navigateur. En production, ce tableau est alimenté
+        par toutes les demandes du site (chaque demande est aussi envoyée par e-mail à AMR).
+      </p>
+    </div>
+  </section>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

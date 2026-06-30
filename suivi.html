@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suivi de projet — AMR Piscines & Paysagiste</title>
+  <meta name="description" content="Suivez l'avancement de votre projet AMR en ligne grâce à votre numéro de dossier : étude, terrassement, construction, finitions, livraison.">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="suivi">
+  <div id="site-header"></div>
+
+  <section class="section section--alt section--tight">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:20px">
+        <span class="eyebrow">Suivi de projet</span>
+        <h2>Suivez l'avancement de vos travaux</h2>
+        <p>Saisissez votre numéro de dossier (reçu après une demande de devis ou un rendez-vous) pour voir où en est votre projet.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:28px">
+    <div class="container" style="max-width:820px">
+
+      <form class="form" id="lookupForm" style="margin-bottom:26px">
+        <div class="form__body">
+          <div class="field-row" style="align-items:end">
+            <div class="field" style="margin-bottom:0">
+              <label for="refInput">Numéro de dossier</label>
+              <input id="refInput" placeholder="ex : DEV-2026-1234" required>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">Rechercher mon projet</button>
+          </div>
+          <div id="recentWrap" class="hidden" style="margin-top:18px">
+            <p class="muted" style="font-size:.85rem;margin:0 0 8px">Vos dossiers récents sur cet appareil :</p>
+            <div id="recentList" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+          </div>
+        </div>
+      </form>
+
+      <div id="notFound" class="alert alert--info hidden"><i data-icon="info" data-isize="20"></i> <div>Aucun dossier trouvé pour ce numéro. Vérifiez la référence ou créez une <a href="devis.html">nouvelle demande de devis</a>.</div></div>
+
+      <div id="result" class="hidden"></div>
+
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/suivi.js"></script>
+</body>
+</html>
