@@ -178,12 +178,13 @@ h3 { font-weight: 700; }
 .hero h1 .gradient-text { color: var(--green-light); -webkit-text-fill-color: var(--green-light); }
 .hero p { font-size: 1.2rem; color: #d9e2e8; margin: 28px 0 32px; max-width: 600px; }
 .hero__actions { display: flex; gap: 14px; flex-wrap: wrap; }
-.hero__chips { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 44px; }
+.hero__chips { display: flex; gap: 12px; flex-wrap: nowrap; margin-top: 44px; }
 .hero__chip {
-  display: flex; align-items: center; gap: 10px; font-size: .95rem; color: #eaf0f3;
+  display: flex; align-items: center; gap: 9px; font-size: .9rem; color: #eaf0f3; white-space: nowrap;
   background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16);
-  padding: 11px 18px; border-radius: 14px; backdrop-filter: blur(8px);
+  padding: 11px 16px; border-radius: 14px; backdrop-filter: blur(8px);
 }
+@media (max-width: 760px) { .hero__chips { flex-wrap: wrap; } }
 .hero__chip strong { color: #fff; font-family: var(--head); }
 
 /* Stats strip */
